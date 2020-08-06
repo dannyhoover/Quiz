@@ -1,7 +1,7 @@
 
 .time {
     font-style: bold;
-    font-size: larger;
+    font-size: 50px;
     padding: 25px;
     text-align: right;
     color: red;
@@ -34,21 +34,14 @@ body .button{
 .answer1 {
     text-align: center;
     padding: 20px;
-    border: slateblue;
-}
-
-#answer-target1 {
-    border: slateblue;
 }
 
 .answer2 {
     text-align: center;
     padding: 20px;
-    border: slateblue;
 }
 
 .answer3 {
     text-align: center;
     padding: 20px;
-    border: slateblue;
 }

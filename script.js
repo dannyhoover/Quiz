@@ -9,15 +9,17 @@ function setTime() {
         secondsLeft--;
         timeEl.textContent = secondsLeft;
 
-        // if (secondsLeft === 0) {
-        //     clearInterval(timerInterval);
-        // }
+        if (secondsLeft === 0) {
+            clearInterval(timerInterval);
+        }
 
     }, 1000);
 }
 
 // quiz question and answer section
 var startBtn = document.querySelector("#start-button");
+startBtn.addEventListener("click", startQuiz);
+
 var questionDisplay = document.querySelector("#question-target");
 var answer1Display = document.querySelector("#answer-target1");
 var answer2Display = document.querySelector("#answer-target2");
@@ -58,14 +60,10 @@ function startQuiz() {
         answer1Display.textContent = questions[i].choices[0];
         answer2Display.textContent = questions[i].choices[1];
         answer3Display.textContent = questions[i].choices[2];
+    }    
 
-        
-    }
-
-    // answer1Display.addEventListener("click", startQuiz)
-    // answer2Display.addEventListener("click", startQuiz)
-    // answer3Display.addEventListener("click", startQuiz)
+    answer1Display.addEventListener("click",)
+    answer2Display.addEventListener("click",)
+    answer3Display.addEventListener("click",)
     
 };
-
-startBtn.addEventListener("click", startQuiz);
