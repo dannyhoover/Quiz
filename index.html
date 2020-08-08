@@ -11,23 +11,45 @@
     </head>
     
     <body>
-        <div class="time"></div>
-        <div id="main"></div>
-
-        <button class="score-list">High Scores</button>
-        
         <header>
+            <div class="time"></div>
+            <div id="main"></div>
+            <button class="score-list">High Scores</button>
             <button id="start-button" class="starting-button">Start Quiz</button>
             <h1>Code Quiz</h1>
         </header>
 
-        <div id="question-target" class="questions"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="question-target" class="questions"></div>
+                </div>
+            </div>
 
-        <div id="answer-target1" class="answer1"></div>
-        <div id="answer-target2" class="answer2"></div>
-        <div id="answer-target3" class="answer3"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="answer-target1" class="answer1"></div>
+                </div>
+            </div>
 
-        <div id="high-scores" class="scoresList"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="answer-target2" class="answer2"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="answer-target3" class="answer3"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="high-scores" class="scoresList"></div>
+                </div>
+            </div>
+        </div>
 
         <script type="text/javascript" src="script.js"></script>
     </body>

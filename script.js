@@ -20,10 +20,11 @@ function setTimeLeft(seconds) {
     }
 }
 
-// quiz question and answer section
+// quiz start button
 var startBtn = document.querySelector("#start-button");
 startBtn.addEventListener("click", startQuiz);
 
+// quiz question and answer section
 var questionDisplay = document.querySelector("#question-target");
 var answerDisplays = [
     document.querySelector("#answer-target1"),
@@ -33,39 +34,40 @@ var answerDisplays = [
 
 var questions = [
     {
-        title: "question 1: ",
-        choices: ["choice1", "choice2", "choice3"],
+        title: "Instead of var, what is a better option? ",
+        choices: ["hip", "let", "dunk"],
         answer: 1
     },
     {
-        title: "question 2: ",
-        choices: ["choice1", "choice2", "choice3"],
+        title: "How would you iterate through something? ",
+        choices: ["change the variable name", "ask it nicely", "for loop"],
         answer: 2
     },
     {
-        title: "question 3: ",
-        choices: ["choice1", "choice2", "choice3"],
+        title: "Where should you reference your javascript file in your html? ",
+        choices: ["end of body", "header", "stylsheet"],
         answer: 0
     },
     {
-        title: "question 4: ",
-        choices: ["choice1", "choice2", "choice3"],
+        title: "When you commit something to your repository, what is a good idea every time? ",
+        choices: ["clear the repository first", "a message of what's changed", "a hidden image to surprise your peers"],
         answer: 1
     }
 ];
-var currentQuestion = 0;
 
-// quiz function
+// quiz functionality once start button is pressed
 function startQuiz() {
     setTime();
     currentQuestion = 0;
     displayQuestion();
 };
 
+// loop that progresses through quiz and once fiinished or if time runs out goes to final screen
 for (let i = 0; i < answerDisplays.length; i++) {
     answerDisplays[i].addEventListener("click", function () {
         if (questions[currentQuestion].answer !== i) {
             setTimeLeft(secondsLeft - 20);
+            alert("Wrong")
         }
         currentQuestion++;
         if (currentQuestion < questions.length) {
@@ -77,6 +79,7 @@ for (let i = 0; i < answerDisplays.length; i++) {
     });
 }
 
+// displaying quesitons
 function displayQuestion() {
     questionDisplay.textContent = questions[currentQuestion].title;
     for(let i=0; i < answerDisplays.length; i++) {
@@ -84,20 +87,27 @@ function displayQuestion() {
     }
 }
 
+// high score button
+var scoreBtn = document.querySelector("#score-list");
+var scoreList = document.querySelector("#high-scores");
 
-// final screen and high scores
-var scoreDisplay = document.querySelector("#high-scores");
-// scoreList.addEventListener("click", endScreen);
+function highScoresList () {
 
-function displayScores() {
+    myStorage = window.localStorage;
+    for (var i = 0; i < localStorage.length; i++) {
+        var highscore = localStorage.getItem("i");
+    }
 
-    scoreDisplay.textContent = highscores, userName;
+    scoreList.textContent = myStorage;
 
 }
 
+ scoreBtn.addEventListener("click", highScoresList);
+
+// final screen and high scores
 function endScreen() {
     let highscores = localStorage.getItem("highscores");
-    let userName = prompt("Enter your initials: ")
+    let userName = prompt("Enter your initials: ");
     if (highscores === null) {
         highscores = [];
     } else {
@@ -109,6 +119,5 @@ function endScreen() {
     });
     highscores = JSON.stringify(highscores);
     localStorage.setItem("highscores", highscores);
-    displayScores();
 }
 
