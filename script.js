@@ -56,42 +56,16 @@ var questions = [
 var currentQuestion = 0;
 
 // quiz function
-
-function displayQuestion() {
-    questionDisplay.textContent = questions[currentQuestion].title;
-    for(let i=0; i < answerDisplays.length; i++) {
-        answerDisplays[i].textContent = questions[currentQuestion].choices[i];
-    }
-}
-
-// final screen
-
-function endScreen() {
-    let highscores = localStorage.getItem("highscores");
-    if (highscores === null) {
-        highscores = [];
-    } else {
-        highscores = JSON.parse(highscores);
-    }
-    highscores.push({
-        name: "Dude",
-        score: secondsLeft
-    });
-    highscores = JSON.stringify(highscores);
-    localStorage.setItem("highscores", highscores);
-}
-
 function startQuiz() {
     setTime();
-
     currentQuestion = 0;
     displayQuestion();
 };
 
-for(let i = 0; i < answerDisplays.length; i++) {
-    answerDisplays[i].addEventListener("click", function() {
+for (let i = 0; i < answerDisplays.length; i++) {
+    answerDisplays[i].addEventListener("click", function () {
         if (questions[currentQuestion].answer !== i) {
-            setTimeLeft(secondsLeft - 25);
+            setTimeLeft(secondsLeft - 20);
         }
         currentQuestion++;
         if (currentQuestion < questions.length) {
@@ -102,3 +76,39 @@ for(let i = 0; i < answerDisplays.length; i++) {
         }
     });
 }
+
+function displayQuestion() {
+    questionDisplay.textContent = questions[currentQuestion].title;
+    for(let i=0; i < answerDisplays.length; i++) {
+        answerDisplays[i].textContent = questions[currentQuestion].choices[i];
+    }
+}
+
+
+// final screen and high scores
+var scoreDisplay = document.querySelector("#high-scores");
+// scoreList.addEventListener("click", endScreen);
+
+function displayScores() {
+
+    scoreDisplay.textContent = highscores, userName;
+
+}
+
+function endScreen() {
+    let highscores = localStorage.getItem("highscores");
+    let userName = prompt("Enter your initials: ")
+    if (highscores === null) {
+        highscores = [];
+    } else {
+        highscores = JSON.parse(highscores);
+    }
+    highscores.push({
+        name: userName,
+        score: secondsLeft
+    });
+    highscores = JSON.stringify(highscores);
+    localStorage.setItem("highscores", highscores);
+    displayScores();
+}
+

@@ -7,6 +7,10 @@
     color: red;
 }
 
+.score-list {
+    text-align: left;
+}
+
 header {
   text-align: center;
   padding: 20px;
