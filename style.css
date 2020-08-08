@@ -1,7 +1,7 @@
 
 .time {
     font-style: bold;
-    font-size: 25px;
+    font-size: 18px;
     padding: 25px;
     text-align: right;
     color: red;
@@ -32,6 +32,7 @@ body .button{
 }
 
 .col-md-6 {
+    background-color: lightseagreen;
     text-align: center;
     padding: 20px;
     font-size: 30px;
@@ -42,4 +43,13 @@ body .button{
     font-size: larger;
     padding: 10px;
     color: blue;
+}
+
+.scores-list {
+    padding: 15px;
+}
+
+#clear-scores {
+    border-width: 1px;
+    outline: solid red;
 }
