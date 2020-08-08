@@ -63,7 +63,7 @@ function startQuiz() {
 for (let i = 0; i < answerDisplays.length; i++) {
     answerDisplays[i].addEventListener("click", function () {
         if (questions[currentQuestion].answer !== i) {
-            setTimeLeft(secondsLeft - 20);
+            setTimeLeft(secondsLeft - 35);
             alert("Wrong")
         }
         currentQuestion++;
