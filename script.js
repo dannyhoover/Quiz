@@ -89,23 +89,13 @@ function displayQuestion() {
 
 // high score button
 var scoreBtn = document.querySelector("#score-list");
-var scoreList = document.querySelector("#high-scores");
+var displayScores = document.querySelector("#high-scores");
 
-function highScoresList () {
-
-    myStorage = window.localStorage;
-    for (var i = 0; i < localStorage.length; i++) {
-        var highscore = localStorage.getItem("i");
-    }
-
-    scoreList.textContent = myStorage;
-
-}
-
- scoreBtn.addEventListener("click", highScoresList);
+//  scoreBtn.addEventListener("click", );
 
 // final screen and high scores
 function endScreen() {
+    clearInterval(timerInterval);
     let highscores = localStorage.getItem("highscores");
     let userName = prompt("Enter your initials: ");
     if (highscores === null) {
@@ -119,5 +109,8 @@ function endScreen() {
     });
     highscores = JSON.stringify(highscores);
     localStorage.setItem("highscores", highscores);
+
+    displayScores.textContent = localStorage.getItem("highscores");
+
 }
 
