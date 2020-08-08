@@ -90,7 +90,7 @@ var displayScores = document.querySelector("#high-scores");
 function displayScoresList () {
     displayScores.textContent = localStorage.getItem("highscores");
 }
-// scoreBtn.addEventListener("click", displayScoresList);
+scoreBtn.addEventListener("click", displayScoresList);
 
 // clear high scores button
 var clearScoreBtn = document.querySelector("#clear-scores")
@@ -116,6 +116,5 @@ function endScreen() {
     });
     highscores = JSON.stringify(highscores);
     localStorage.setItem("highscores", highscores);
-    displayScores.textContent = localStorage.getItem("highscores");
 }
 
