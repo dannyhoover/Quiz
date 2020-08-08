@@ -1,16 +1,13 @@
 // timer
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("main");
-
 var secondsLeft = 75;
-
 let timerInterval;
 function setTime() {
     timerInterval = setInterval(function () {
         setTimeLeft(secondsLeft - 1);
     }, 1000);
 }
-
 function setTimeLeft(seconds) {
     secondsLeft = Math.max(seconds, 0);
     timeEl.textContent = secondsLeft;
@@ -90,8 +87,18 @@ function displayQuestion() {
 // high score button
 var scoreBtn = document.querySelector("#score-list");
 var displayScores = document.querySelector("#high-scores");
+function displayScoresList () {
+    displayScores.textContent = localStorage.getItem("highscores");
+}
+// scoreBtn.addEventListener("click", displayScoresList);
 
-//  scoreBtn.addEventListener("click", );
+// clear high scores button
+var clearScoreBtn = document.querySelector("#clear-scores")
+clearScoreBtn.addEventListener("click", clearScoreList)
+function clearScoreList () {
+    localStorage.removeItem("highscores");
+    displayScores.textContent = localStorage.getItem("highscores");
+}
 
 // final screen and high scores
 function endScreen() {
@@ -109,8 +116,6 @@ function endScreen() {
     });
     highscores = JSON.stringify(highscores);
     localStorage.setItem("highscores", highscores);
-
     displayScores.textContent = localStorage.getItem("highscores");
-
 }
 
